@@ -1,0 +1,21 @@
+Testing tab is used for testing automata with different strings.
+
+- Random String - Generates a random string out of the alphabet of the selected automaton.
+
+- Random Acceptable String - Generates a random string out of the alphabet of the selected automaton and that string leads to the ending state of the selected automata.
+
+- Random Unacceptable String - Generates a random string out of the alphabet of the selected automaton and that string does not lead to the ending state of the selected automata.
+
+- Start - Enters the mode to test if the given string is recognized by selected automata. To begin, select at least one automaton on the canvas and enter the string. After that, click the "Start" button to enter the testing mode. 
+
+- Stop - Leaves the testing mode.
+
+- Reset - Returns to starting state(s) and to the beginning of the string.
+
+- Step Back - Transitions to the previous letter in the given string and to the previous state in selected automata (if possible).
+
+- Step Forward - Transitions to the next letter in the given string and to the next state in selected automata (if possible).
+
+- Skip - Transitions to the end of the string and the ending state in selected automata (if possible).
+
+

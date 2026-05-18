@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/help">
+        <file>res/PopupTextCreation.txt</file>
+        <file>res/PopupTextOperations.txt</file>
+        <file>res/PopupTextTesting.txt</file>
+    </qresource>
+    <qresource prefix="/icons">
+        <file>res/favicon.ico</file>
+    </qresource>
+</RCC>

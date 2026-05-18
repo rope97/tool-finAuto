@@ -1,0 +1,13 @@
+Creation tab is used for creating new automata out of regular expressions and getting regular expressions that the selected automata recognizes.
+
+- Create NFA - Creates and draws a non-deterministic finite automaton out of a entered regular expression.
+To draw a new automaton, enter a regular expression in the field located above the "Create NFA" button and click the button.
+
+- Create DFA - Creates and draws a deterministic finite automaton out of a entered regular expression.
+To draw a new automaton, enter a regular expression in the field located above the "Create DFA" button and click the button.
+
+- Create MDFA - Creates and draws a minimal deterministic finite automaton out of a entered regular expression.
+To draw a new automaton, enter a regular expression in the field located above the "Create MDFA" button and click the button.
+
+- Generate Regex -  Generates a regular expression that the currently selected automaton recognizes.
+To generate a regular expression, select one of the already drawn automata and click the "Generate regex" button.

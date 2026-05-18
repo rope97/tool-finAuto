@@ -1,0 +1,79 @@
+%language "c++"
+%require "3.2"
+%define api.token.constructor
+%define api.value.type variant
+
+%code requires {
+	class RegexDriver;
+	class RegexAST;
+	#include <memory>
+}
+
+%param { RegexDriver& driver }
+
+%code {
+    #include "lib/RegexDriver.hpp"
+    #include "lib/RegexAST.hpp"
+}
+
+%token <char> SYM_T
+%nterm <std::unique_ptr<RegexAST>> optalt optconcat optunary base
+
+%start regex
+
+%%
+
+regex:
+	optalt {
+        driver.mAST = std::move($1);
+	}
+;
+
+optalt:
+	optalt '|' optconcat {
+		$$ = std::make_unique<AlternationAST>(std::move($1), std::move($3));
+	}
+|	optconcat {
+		$$ = std::move($1);
+	}
+;
+
+optconcat:
+	optconcat optunary {
+		$$ = std::make_unique<ConcatenationAST>(std::move($1), std::move($2));
+	}
+|	optunary {
+		$$ = std::move($1);
+	}
+;
+
+optunary:
+	base '?' {
+		$$ = std::make_unique<ZeroOrOneAST>(std::move($1));
+	}
+|	base '*' {
+		$$ = std::make_unique<ZeroOrMoreAST>(std::move($1));
+	}
+|	base '+' {
+		$$ = std::make_unique<OneOrMoreAST>(std::move($1));
+	}
+|	base {
+		$$ = std::move($1);
+	}
+;
+
+base:
+	'(' optalt ')' {
+		$$ = std::move($2);
+	}
+|	SYM_T {
+		$$ = std::make_unique<SymbolAST>($1);
+    }
+;
+
+%%
+
+void yy::parser::error(const std::string& message)
+{
+	std::cerr << message << std::endl;
+}

@@ -1,0 +1,23 @@
+Operations tab is used for different operations on selected automata.
+
+- Determinize - Determinizes the selected automaton, multiple automata can be selected to be determinized at once.
+If there are no changes to the automaton, then the automaton is already determinized.
+
+- Minimize - Minimizes the selected automaton, multiple automata can be selected to be minimized at once.
+If there are no changes to the automaton, then the automaton is already minimized.
+
+- Complete - Completes the selected automaton. Automaton is complete if there is a transition from a single state to other states using every character of the alphabet.
+
+- Reverse - Reverses the automaton so that the reversed strings are recognized.
+
+- Union - Draws a new automaton that represents the union of different automata. Select at least 2 different automata and click the "Union" button. A new automaton should be drawn that represents the union of previously selected automata.
+
+- Intersection - Draws a new automaton that represents the intersection of different automata. Select at least 2 different automata and click the "Intersection" button. A new automaton should be drawn that represents the intersection of previously selected automata.
+
+- Difference - Draws a new automaton that represents the difference of different automata. Select at least 2 different automata and click the "Difference" button. A new automaton should be drawn that represents the difference of previously selected automata.
+
+- Complement - Transforms the automaton to its complement. Select at least 1 automaton and click the "Complement" button. A new automaton should be drawn that represents the complement of previously selected automata.
+
+- Clone - Makes a copy out of selected automata. Multiple automata can be cloned at the same time.
+
+- Delete - Removes the selected automaton from the canvas. Multiple automata can be deleted at the same time.
