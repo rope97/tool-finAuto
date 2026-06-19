@@ -14,7 +14,7 @@
 class AutomataController {
 public:
     static AutomataController& GetController();
-
+    unsigned CreateTLS(AutomataModel& model, std::string&);
     unsigned CreateNFA(AutomataModel& model, const std::string& regex);
     unsigned CreateDFA(AutomataModel& model, const std::string& regex);
     unsigned CreateMDFA(AutomataModel& model, const std::string& regex);

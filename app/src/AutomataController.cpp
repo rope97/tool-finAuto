@@ -1,4 +1,5 @@
 #include "lib/AutomataController.hpp"
+#include "lib/TLSAutomata.hpp"
 
 AutomataController::AutomataController()
 {
@@ -17,6 +18,13 @@ unsigned AutomataController::CreateNFA(AutomataModel& model, const std::string& 
     FiniteAutomata automata = FiniteAutomata(regex);
     return model.AddAutomata(automata);
 }
+
+unsigned AutomataController::CreateTLS(AutomataModel& model, std::string&)
+{
+    FiniteAutomata tls = CreateTLSAutomata();
+    return model.AddAutomata(tls);
+}
+
 
 unsigned AutomataController::CreateDFA(AutomataModel& model, const std::string& regex)
 {

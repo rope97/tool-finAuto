@@ -14,6 +14,7 @@ SOURCES += \
     src/AutomataController.cpp \
     src/AutomataView.cpp \
     src/FiniteAutomata.cpp \
+    src/TLSAutomata.cpp \
     src/RegexAST.cpp \
     src/RegexDriver.cpp \
     src/ZoomableGraphicsView.cpp \
@@ -35,12 +36,9 @@ HEADERS += \
     lib/AutomataDisplay.hpp \
     lib/AutomataEdge.hpp \
     lib/AutomataGraph.hpp \
-    lib/AutomataNode.hpp
-
-LIBS += \
-    -lgvc \
-    -lcgraph \
-    -lcdt
+    lib/AutomataNode.hpp \
+    lib/TLSAutomata.hpp
+LIBS += -lgvc -lcgraph -lcdt
 
 FORMS += \
     InfoPopup.ui \
@@ -52,7 +50,9 @@ FLEXSOURCES += \
 BISONSOURCES += \
     src/RegexParser.ypp
 
-DEFINES += SRCDIR=\\\"$$PWD/\\\"
+DEFINES += SRCDIR=\"$$PWD\"
+INCLUDEPATH += /opt/homebrew/opt/graphviz/include
+LIBS += -L/opt/homebrew/opt/graphviz/lib
 
 flex.input = FLEXSOURCES
 flex.output = ${QMAKE_FILE_BASE}.cpp
@@ -64,7 +64,7 @@ flex.CONFIG += target_predeps
 
 bisonsource.input = BISONSOURCES
 bisonsource.output = ${QMAKE_FILE_BASE}.tab.cpp
-bisonsource.commands = bison -d -v -o ${QMAKE_FILE_BASE}.tab.cpp ${QMAKE_FILE_IN}
+bisonsource.commands = /opt/homebrew/opt/bison/bin/bison -d -v -o ${QMAKE_FILE_BASE}.tab.cpp ${QMAKE_FILE_IN}
 bisonsource.variable_out = SOURCES
 bisonsource.name = bisonsource
 bisonsource.CONFIG += target_predeps

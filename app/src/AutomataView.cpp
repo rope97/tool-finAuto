@@ -62,6 +62,17 @@ void AutomataView::ConnectUIButtons()
     connect(ui->pbStepBack, &QPushButton::clicked, this, &AutomataView::OnBackClicked);
     connect(ui->pbReset, &QPushButton::clicked, this, &AutomataView::OnResetClicked);
     connect(ui->pbSkip, &QPushButton::clicked, this, &AutomataView::OnSkipClicked);
+    connect(ui->pbCreateTLS, &QPushButton::clicked, this, &AutomataView::OnCreateTLSClicked);
+}
+
+
+void AutomataView::OnCreateTLSClicked()
+{   
+    std::string dummyString = "";
+    unsigned id = automataController.CreateTLS(automataModel, dummyString);
+    QPointF center = ui->gvAutomataDisplay->mapToScene(ui->gvAutomataDisplay->rect().center());
+
+    mAutomataDisplay->AddAutomata(*automataModel.GetAutomata(id), id, center);
 }
 
 void AutomataView::ConnectShortcuts()

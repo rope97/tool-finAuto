@@ -53,7 +53,7 @@ private slots:
     void OnBackClicked();
     void OnResetClicked();
     void OnSkipClicked();
-
+    void OnCreateTLSClicked();
 private:
     Ui::MainWindow *ui;
     AutomataDisplay *mAutomataDisplay;
