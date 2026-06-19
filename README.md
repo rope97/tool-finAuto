@@ -13,7 +13,7 @@ It provides an interactive environment for:
 
 ---
 
-## ✨ Implemented Features
+## Implemented Features
 
 ### Automata Construction
 - Build NFA from regular expressions
@@ -87,6 +87,8 @@ The graphical interface includes:
 - Graphviz (graph rendering)
 
 ---
+Project currently tested on Linux/macOS
+TLS automaton is an educational model, not a real cryptographic implementation
 
  Build Instructions
 
@@ -94,10 +96,3 @@ The graphical interface includes:
 qmake app.pro
 make
 ./app
-
-
-Project currently tested on Linux/macOS
-TLS automaton is an educational model, not a real cryptographic implementation
-
-Danica Dimitrijevic
-
